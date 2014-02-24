@@ -43,11 +43,14 @@
 ul.columns {
 -webkit-column-count: 4;
 -moz-column-count: 4;
--ms-column-count: 4;
--o-column-count: 4;
 column-count: 4;
 font-size: 80%;
 margin: 40px -40px 0;
+}
+ul.column2 {
+-webkit-column-count: 2;
+-moz-column-count: 2;
+column-count: 2;
 }
 
 .slide i {
@@ -55,6 +58,8 @@ margin: 40px -40px 0;
   width: 100px;
 }
 .slide:not(.opacity) i {position: absolute; right: 40px;}
+.columns {font-family: monospace;}
+p, ul {font-family: helvetica}
 </style>
 </head>
 <body>
@@ -681,35 +686,6 @@ background-image:
 
 
 
-
-
-
-
-<!-- AlphaTransparency Tips  -->
-<div class="slide">
-<header><h1>AlphaTransparency Tips</h1></header>
-<section class="content">
-<ul>
-<li>Used in RGBA &amp; HSLA colors
-<pre contenteditable>
-rgba(58, 103, 171, 0.5);
-hsla(216, 49%, 45%, 0.5);
-</pre>
-</li>
-<li class="angled" style="padding-right: 10px;"><span style="text-shadow: 0 21px 1px  rgba(0,0,0,0.3);">Transparent Shadows</span>
-<pre contenteditable style="box-shadow: -10px 10px rgba(0,0,0,0.3); margin-left: 20px;">
-.trans { box-shadow: -10px 10px rgba(0,0,0,0.3);
-         text-shadow: 0 21px 1px rgba(0,0,0,0.3);}</pre></li>
-<li class="angled" style="padding-right: 10px;"><span style="text-shadow: 0 21px 1px  #666">Solid Shadows</span>
-
-<pre contenteditable style="box-shadow:  -10px 10px  #999; margin-left: 20px;">
-.solid { box-shadow: -10px 10px #999;
-         text-shadow: 0 21px 1px #999;}</pre></li>
-</ul>
-</section>
-</div>
-
-
 <!-- border-radius -->
 <div class="slide">
 <header><h1>border-radius</h1></header>
@@ -1043,82 +1019,95 @@ cubic-bezier(x1, y1, x2, y2)</pre>
 
 
 
- <div class="slide" id="animic">
-  	<i></i>
-    <header>
-    	<h1>&lsquo;animation-iteration-count&rsquo;</h1>
-    </header>
-    <section class="content">
-    <pre contenteditable>
-.snowflake {
-   &hellip;
-  <u></u>transform-origin: left -20px;
-  <u></u>animation-name: falling;
-  <u></u>animation-duration: 3s;
-  <u></u>animation-timing-function: ease-in-out;
-  <b>-webkit-animation-iteration-count: infinite;</b>
-  <b> animation-iteration-count: infinite;</b>
-}</pre>
-<p>&lsquo;infinte&rsquo; or number. Default is &lsquo;1&rsquo;.</p>
-<pre contenteditable><b>-webkit-animation-iteration-count: 3;</b>
-<b>animation-iteration-count: 3;</b></pre>
-<p style="text-align:center"><span onClick="vendorPrefix('w', 'animic')">-webkit-</span></p>
-
-</section>
-</div>
-
-
-
-
-
-<div class="slide normal">
- <header>
-    <h1>Animation Properties</h1>
- </header>
- <section class="content">
-     <ul class="imp">
-        <li>animation-name</li>
-        <li>animation-duration</li>
-        <li>animation-timing-function</li>
-        <li>animation-iteration-count</li>
-        <li>animation-direction</li>
-        <li>animation-play-state</li>
-        <li>animation-delay</li>
-        <li>animation-fill-mode</li>
-        <li>animation (shorthand)</li>
-      </ul>
- </section>
-</div>
-
-
-
-<div class="slide">
-  <header><h1>Text Editor</h1></header>
-    <section class="content">
-    </section>
-</div>
-
-<div class="slide">
-  <header><h1>Linking CSS</h1></header>
-    <section class="content">
-    </section>
-</div>
-
-<div class="slide">
-  <header><h1>Preprocessors</h1></header>
-    <section class="content">
-    </section>
-</div>
-
 <div class="slide">
   <header><h1>Tools for generating CSS</h1></header>
     <section class="content">
     </section>
 </div>
 
+
 <div class="slide">
-  <header><h1>Resources for learning CSS</h1></header>
+  <header><h1>Text Editors</h1></header>
     <section class="content">
+<ul class="column2">
+<li><a href="http://aptana.com/">Aptana Studio</a>*</li>
+<li><a href="http://www.barebones.com/products/bbedit/‎">BBEdit</a></li>
+<li><a href="http://brackets.io/">Brackets</a>*</li>
+<li><a href="https://panic.com/coda/">Coda</a></li>
+<li><a href="http://www.codelobster.com/">Codelobster</a> PHP</li>
+<li><a href="http://macrabbit.com/espresso/">Espresso/CSSEdit</a></li>
+<li><a href="http://notepad-plus-plus.org/">Notepad++</a>*</li>
+<li><a href="http://www.sublimetext.com/3">Sublime Text</a></li>
+<li><a href="http://macromates.com/">TextMate</a></li>
+<li><a href="http://www.ultraedit.com/">UltraEdit</a></li>
+</ul>
+      <p>WYSIWYG</p>
+        <ul class="column2">
+          <li>Dreamweaver</li>
+          <li>Aloha Editor</li>
+          <li>Maqetta</li>
+          <li>BlueGriffon</li></ul>
+      <p>Don't use word processing applications!!</p>
+
+    </section>
+</div>
+
+<div class="slide">
+  <header><h1>Including CSS</h1></header>
+    <section class="content"><p>External Style Sheet</p>
+<pre>&lt;link href=“stylesheet” href=“path/file.css” /&gt;</pre>
+<p>
+Embedded Styles</p>
+<pre>&lt;style>
+   body {}
+&lt;/style></pre>
+
+<p>Inline Styles</p>
+<pre>&lt;p style=“color: black”>Lorem ipsum&lt;/p></pre>
+
+    </section>
+</div>
+
+<div class="slide">
+  <header><h1>Preprocessors</h1></header>
+    <section class="content">
+      <p>CSS preprocessors add functionality additions like variables, nesting, and mixins (during development).</p>
+      <ul>
+        <li>Sass</li>
+        <li>Stylus</li>
+        <li>LESS</li>
+      </ul>
+    </section>
+</div>
+
+<div class="slide object">
+     <object data="http://www.fontsquirrel.com/tools/webfont-generator"></object>
+     <header><h1>CSS Writing Tool</h1></header>
+     <a href="http://www.fontsquirrel.com/tools/webfont-generator" target="play" class="objectlink">Open in separate window</a>
+</div>
+
+<div class="slide object">
+     <object data="http://www.awwwards.com/the-best-css3-tools-experiments-and-demos-for-web-developers.html"></object>
+     <header><h1>CSS Writing Tools</h1></header>
+     <a href="http://www.awwwards.com/the-best-css3-tools-experiments-and-demos-for-web-developers.html" target="play" class="objectlink">Open in separate window</a>
+</div>
+
+
+
+<div class="slide">
+  <header><h1>CSS Learning Resources</h1></header>
+    <section class="content">
+      <ul>
+        <li><a href="http://estelle.github.io/animation">Animation</a></li>
+        <li><a href="http://estelle.github.io/gradients">Gradients</a></li>
+        <li><a href="http://estelle.github.io/selectors">Selectors</a></li>
+        <li><a href="http://estelle.github.io/mobilecss/responsive.html">Responsiveness</a></li>
+        <li><a href="http://estelle.github.io/forms">Web Forms</a></li>
+      </ul>
+      <ul>
+        <li><a href="http://css-tricks.com">CSS-Tricks</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/learn/css">MDN Learn CSS</a></li>
+      </ul>
     </section>
 </div>
 
