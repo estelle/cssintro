@@ -156,6 +156,8 @@ li.future {color: #360;}
 		height: 16px;
 		width: 16px;
 		border-radius: 50%;
+  }
+  #flakes i {
 		-webkit-transform-origin: left -20px;
 		-webkit-animation-name: falling;
 		-webkit-animation-duration: 3s;

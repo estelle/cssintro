@@ -60,6 +60,77 @@ column-count: 2;
 .slide:not(.opacity) i {position: absolute; right: 40px;}
 .columns {font-family: monospace;}
 p, ul {font-family: helvetica}
+#keyframe3 {
+  -webkit-animation: keyframe3 5s infinite;
+  animation: keyframe3 5s infinite;
+  background-color: blue;
+}
+#keyframe2 {
+  -webkit-animation: granular 5s infinite;
+  animation: granular 5s infinite;
+  background-color: blue;
+}
+@-webkit-keyframes keyframe3 {
+
+    0% {
+      top: -40px;
+    }
+
+    100% {
+      top: 1000px;
+    }
+
+}
+@keyframes keyframe3 {
+
+    0% {
+      top: -40px;
+    }
+
+    100% {
+      top: 1000px;
+    }
+
+}
+@-webkit-keyframes granular {
+
+    0% {
+      top: -40px;
+    }
+
+    10%{
+      top: 400px;
+    }
+
+    90%{
+      top: 560px;
+    }
+
+    100% {
+      top: 1000px;
+    }
+
+}
+
+@keyframes granular {
+
+    0% {
+      top: -40px;
+    }
+
+    10%{
+      top: 400px;
+    }
+
+    90%{
+      top: 560px;
+    }
+
+    100% {
+      top: 1000px;
+    }
+
+}
 </style>
 </head>
 <body>
@@ -846,7 +917,7 @@ code:hover {
 
 
 <div class="slide">
-	<i id="keyframe2"></i>
+	<i id="keyframe2" style="-webkit-animation-name: granular; background-color: blue;"></i>
     <header>
     	<h1>Granular animation control</h1>
     </header>
@@ -939,7 +1010,7 @@ code:hover {
 
 
  <div class="slide" id="animdur">
-  	<i id="animationduration"></i>
+  	<i id="animationduration" style="-webkit-animation: none;"></i>
 	<header>
      	<h1>&lsquo;animation-duration&rsquo;</h1>
     </header>
@@ -959,13 +1030,14 @@ code:hover {
 <script defer>
  function changeDuration(){
 	 var speed = document.getElementById('speedrange').value;
-	 document.getElementById('animationduration').style.webkitAnimationDuration = speed + 's';
-   document.getElementById('animationduration').style.animationDuration = speed + 's';
+	 document.getElementById('animationduration').style.webkitAnimation = "falling " + speed + 's';
+   document.getElementById('animationduration').style.animation = "falling " + speed + 's';
 	 var seconds = document.querySelectorAll("#animdur span.changer");
 	 for(var i = 0, j = seconds.length; i < j; i++){
 		 seconds[i].innerHTML = speed;
 	 }
  }
+ document.getElementById('animationduration').addEventListener('webkitAnimationEnd', function (){this.setAttribute('style', '');});
 </script>
 </div>
 
@@ -1003,13 +1075,16 @@ cubic-bezier(x1, y1, x2, y2)</pre>
 <script defer>
  function changeTimingFunction(event){
 	 var speed = event.target.value;
-	 console.log(speed)
 	 var seconds = document.querySelectorAll("#animtf span.changer");
 	 for(var i = 0, j = seconds.length; i < j; i++){
 		 seconds[i].innerHTML = speed;
 	 }
-	 document.getElementById('animationtimingfunc').style.webkitAnimationTimingFunction = speed;
-	 document.getElementById('animationtimingfunc').style.animationTimingFunction = speed;
+   document.getElementById('animationtimingfunc').setAttribute('style','')
+
+	   document.getElementById('animationtimingfunc').style.animation =
+      document.getElementById('animationtimingfunc').style.webkitAnimation =
+          'falling 5s ' + speed;
+
  }
 </script>
     </div>
@@ -1022,7 +1097,7 @@ cubic-bezier(x1, y1, x2, y2)</pre>
 
 
 <div class="slide">
-  <header><h1>Tools for generating CSS</h1></header>
+  <header><h1>Tools for generating CSS?</h1></header>
     <section class="content">
     </section>
 </div>
